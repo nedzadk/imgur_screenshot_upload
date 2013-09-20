@@ -4,12 +4,14 @@ import requests
 import json
 import base64
 import os
+import sys
 import ConfigParser
 import datetime
 
 
 config = ConfigParser.RawConfigParser()
-config.read('ss.ini')
+app_path = os.path.dirname(sys.argv[0])
+config.read(app_path + '/ss.ini')
 img_path = config.get('config', 'img_save_path')
 img_name = config.get('config', 'img_name')
 client_id = config.get('config', 'imgur_client_id')
